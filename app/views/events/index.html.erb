@@ -1,0 +1,15 @@
+<%if @events.any?%>
+  <ul>
+    <% @events.each do |event|%>
+      <li>
+        <h4><%= event.title%></h4>
+        <p><%= event.description%></p>
+        <p>Creator: <%= event.creator.name %></p>
+        <p><%= event.date.strftime('%B %d, %Y') %></p>
+        <%= link_to '(Details)', event %>
+      </li>
+    <%end%>
+  </ul>
+<%else%>     
+   <h2> No events </h2>
+<%end%>    

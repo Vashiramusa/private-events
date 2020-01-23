@@ -4,6 +4,8 @@
     <li>
      <h4><%= event.title%></h4>
      <p><%= event.description%></p>
+     <p><%= event.date.strftime('%B %d, %Y') %></p>
+     <%= link_to '(Details)', event %>
     </li>
     <%end%>
   </ul>
