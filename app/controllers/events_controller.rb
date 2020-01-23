@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :this_event, only: %i[join show]
+
   def new
     @event = Event.new
   end
@@ -21,10 +23,27 @@ class EventsController < ApplicationController
     @events = Event.all 
   end
 
+  def join
+    if current_user.join_event(@event)
+      flash[:success] = "You're now attending this event"
+    else
+      flash[:danger] = "You're already attending this event!"
+    end
+    redirect_to @event
+  end
+
   private
 
-   def event_params
-     params.require(:event).permit(:title, :description, :date)
-   end   
+    def this_event
+      @event = Event.find_by(id: params[:id])
+      return if @event
+
+      flash[:warning] = "The event doesn't exist"
+      redirect_to :root
+    end
+
+    def event_params
+      params.require(:event).permit(:title, :description, :date)
+    end   
 
 end
