@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :this_event, only: %i[join leave show]
+  before_action :user_logged_in?, only: %i[new create join leave]
 
   def new
     @event = Event.new
