@@ -1,5 +1,6 @@
 example_id                         | status | run_time        |
 ---------------------------------- | ------ | --------------- |
-./spec/authentication_spec.rb[1:1] | passed | 0.33225 seconds |
-./spec/create_event_spec.rb[1:1]   | passed | 0.09627 seconds |
-./spec/create_event_spec.rb[1:2]   | passed | 0.10742 seconds |
+./spec/authentication_spec.rb[1:1] | passed | 0.55089 seconds |
+./spec/create_event_spec.rb[1:1]   | passed | 0.15457 seconds |
+./spec/create_event_spec.rb[1:2]   | passed | 0.14938 seconds |
+./spec/models/user_spec.rb[1:1]    | passed | 0.00526 seconds |
