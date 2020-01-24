@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :this_event, only: %i[join show]
+  before_action :this_event, only: %i[join leave show]
 
   def new
     @event = Event.new
@@ -29,6 +29,15 @@ class EventsController < ApplicationController
       flash[:success] = "You're now attending this event"
     else
       flash[:danger] = "You're already attending this event!"
+    end
+    redirect_to @event
+  end
+
+  def leave
+    if current_user.leave_event(@event)
+      flash[:success] = "You're no longer attending the event"
+    else
+      flash[:danger] = "You weren't attending this event!"
     end
     redirect_to @event
   end

@@ -1,13 +1,15 @@
-<h2>Create new event</h2>
-<%= form_for @event, url: events_path do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<div class="form-wrap">
+  <h2>Create new event</h2>
+  <%= form_for @event, url: events_path do |f| %>
+    <%= f.label :title, class: 'form-label' %>
+    <%= f.text_field :title, class: 'form-input' %>
 
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+    <%= f.label :description, class: 'form-label' %>
+    <%= f.text_area :description, class: 'form-input' %>
 
-  <%= f.label :date %>
-  <%= f.date_select(:date, :order => [:month, :day, :year]) %>
+    <%= f.label :date, class: 'form-label' %>
+    <%= f.date_select(:date, :order => [:month, :day, :year]) %>
 
-  <%= f.submit 'Create event' %>
-<% end %>
+    <%= f.submit 'Create event', class: 'form-btn' %>
+  <% end %>
+</div>

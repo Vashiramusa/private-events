@@ -1,8 +1,8 @@
 <%if @future.any? || @past.any?%>
-  <h2>Future Events</h2>
+  <h2 class="index-heading">Future Events</h2>
   <%=render 'event_list', events: @future%>
-  <h2>Past Events</h2>
+  <h2 class="index-heading past-events">Past Events</h2>
    <%=render 'event_list', events: @past%>
 <%else%>     
-   <h2> No events </h2> 
+   <h2 class="index-heading"> No events </h2> 
 <%end%>    

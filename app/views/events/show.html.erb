@@ -1,15 +1,23 @@
-<h3><%= @event.title %></h3>
-<p><%= @event.description %></p>
-<p><%= @event.creator.name %></p>
-<p><%= @event.date.strftime('%B %d, %Y') %></p>
+<div class="event-wrap">
+  <h3><%= @event.title %></h3>
+  <p><%= @event.description %></p>
+  <p>Creator: <%= @event.creator.name %></p>
+  <p><%= @event.date.strftime('%B %d, %Y') %></p>
 
-<h4>Attendees</h4>
+  <% if @event.creator.attending_events.include?(@event) %>
+    <%= link_to 'Leave', leave_event_path(@event), method: :post, class: "btn btn-lg btn-primary" %>
+  <% else %>
+    <%= link_to 'Join', join_event_path(@event), method: :post, class: "btn btn-lg btn-primary" %>
+  <% end %>
+</div>
+
+<h4 class="attendees">Attendees</h4>
 <%if @event.attendees.any?%>
-  <ul>
+  <ul class="list">
     <%@event.attendees.each do |attendee|%>
-      <li><%=attendee.name%> (<%=attendee.username%>)</li>
+      <li class="list-item"><%=attendee.name%> (<%=attendee.username%>)</li>
     <%end%>
   </ul>
 <%else%>  
-<p>No Attendees</p>
+<p class="center">No Attendees</p>
 <%end%>

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :events, only: [:new, :create, :show, :index] do
     member do
       post 'join'
+      post 'leave'
     end
   end
 

@@ -1,7 +1,7 @@
 <%if events.any?%>
-  <ul>
+  <ul class="list">
     <%events.each do |event|%>
-    <li>
+    <li class="list-item">
      <h4><%= event.title%></h4>
      <p><%= event.description%></p>
      <p><%= event.date.strftime('%B %d, %Y') %></p>

@@ -1,18 +1,18 @@
 <div class="row">
-  <aside class="col-md-4">
+  <aside>
     <section class="user_info">
       <h1>Name: <%= @user.name %></h1>
       <h3>Username: <%= @user.username %></h3>
     </section>
   </aside>
 
-  <div class="col-md-8">
-   <h4>Created Events</h4>
+  <div>
+   <h4 class="index-heading">Created Events</h4>
    <%= render 'user_events', events: @user.created_events %>
   </div>
 
-  <div class="col-md-8">
-   <h4>Attending Events</h4>
+  <div>
+   <h4 class="index-heading">Attending Events</h4>
    <%= render 'user_events', events: @user.attending_events %>
   </div>
 </div>

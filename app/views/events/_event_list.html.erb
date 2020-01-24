@@ -1,12 +1,16 @@
-<ul>
-    <% events.each do |event|%>
-      <li>
-        <h4><%= event.title%></h4>
-        <p><%= event.description%></p>
-        <p>Creator: <%= event.creator.name %></p>
-        <p><%= event.date.strftime('%B %d, %Y') %></p>
-        <%= link_to '(Details)', event %>
-        <%= link_to 'Join', join_event_path(event), method: :post, class: "btn btn-lg btn-primary" %>
-      </li>
-    <%end%>
-  </ul>
+<ul class="list">
+  <% events.each do |event|%>
+    <li class="list-item">
+      <h4><%= event.title%></h4>
+      <p><%= event.description%></p>
+      <p>Creator: <%= event.creator.name %></p>
+      <p><%= event.date.strftime('%B %d, %Y') %></p>
+      <%= link_to '(Details)', event, class: 'details-link' %> <br>
+      <% if event.creator.attending_events.include?(event) %>
+        <%= link_to 'Leave', leave_event_path(event), method: :post, class: "btn btn-lg btn-primary event-btn" %>
+      <% else %>
+        <%= link_to 'Join', join_event_path(event), method: :post, class: "btn btn-lg btn-primary event-btn" %>
+      <% end %>
+    </li>
+  <%end%>
+</ul>
