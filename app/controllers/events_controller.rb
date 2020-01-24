@@ -20,7 +20,8 @@ class EventsController < ApplicationController
   end
   
   def index
-    @events = Event.all 
+    @future = Event.future
+    @past = Event.past
   end
 
   def join

@@ -2,3 +2,14 @@
 <p><%= @event.description %></p>
 <p><%= @event.creator.name %></p>
 <p><%= @event.date.strftime('%B %d, %Y') %></p>
+
+<h4>Attendees</h4>
+<%if @event.attendees.any?%>
+  <ul>
+    <%@event.attendees.each do |attendee|%>
+      <li><%=attendee.name%> (<%=attendee.username%>)</li>
+    <%end%>
+  </ul>
+<%else%>  
+<p>No Attendees</p>
+<%end%>

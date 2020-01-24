@@ -1,16 +1,8 @@
-<%if @events.any?%>
-  <ul>
-    <% @events.each do |event|%>
-      <li>
-        <h4><%= event.title%></h4>
-        <p><%= event.description%></p>
-        <p>Creator: <%= event.creator.name %></p>
-        <p><%= event.date.strftime('%B %d, %Y') %></p>
-        <%= link_to '(Details)', event %>
-        <%= link_to 'Join', join_event_path(event), method: :post, class: "btn btn-lg btn-primary" %>
-      </li>
-    <%end%>
-  </ul>
+<%if @future.any? || @past.any?%>
+  <h2>Future Events</h2>
+  <%=render 'event_list', events: @future%>
+  <h2>Past Events</h2>
+   <%=render 'event_list', events: @past%>
 <%else%>     
-   <h2> No events </h2>
+   <h2> No events </h2> 
 <%end%>    

@@ -7,6 +7,12 @@
   </aside>
 
   <div class="col-md-8">
+   <h4>Created Events</h4>
    <%= render 'user_events', events: @user.created_events %>
+  </div>
+
+  <div class="col-md-8">
+   <h4>Attending Events</h4>
+   <%= render 'user_events', events: @user.attending_events %>
   </div>
 </div>
