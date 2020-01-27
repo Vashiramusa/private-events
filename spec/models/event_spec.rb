@@ -1,5 +1,4 @@
 RSpec.describe Event, type: :model do
-  
   context 'Validation tests' do
     subject { Event.new }
     let(:create_event) { User.new(name: 'Samaila', username: 'Vashira') }
@@ -43,4 +42,4 @@ RSpec.describe Event, type: :model do
       end
     end
   end
-end  
+end

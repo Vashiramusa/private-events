@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
-  def new
-
-  end
+  def new; end
 
   def create
     @user = User.find_by(username: params[:session][:username])
@@ -11,7 +9,7 @@ class SessionsController < ApplicationController
     else
       flash.now[:danger] = 'username not found'
       render 'new'
-    end    
+    end
   end
 
   def destroy

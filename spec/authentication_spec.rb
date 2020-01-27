@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Authentications', type: :feature do
   scenario 'Log in and log out' do
-    user = User.create(name: 'User Example', username: 'username')
+    User.create(name: 'User Example', username: 'username')
     visit login_path
     have_link 'Log In', href: login_path
     have_link 'Events', href: events_path

@@ -19,5 +19,4 @@ RSpec.describe User, type: :model do
     assc = User.reflect_on_association(:created_events)
     expect(assc.macro).to eq :has_many
   end
-
 end

@@ -1,8 +1,5 @@
-# frozen_string_literal: true
-
 class UsersController < ApplicationController
   before_action :user_logged_in?, only: [:show]
-
 
   def new
     @user = User.new
@@ -15,17 +12,16 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       render 'new'
-    end        
-  end  
+    end
+  end
 
   def show
     @user = current_user
   end
-  
+
   private
 
   def user_params
     params.require(:user).permit(:name, :username)
   end
-  
 end

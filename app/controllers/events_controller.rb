@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
   end
-  
+
   def create
     @event = current_user.created_events.build(event_params)
     if @event.save
@@ -15,11 +15,11 @@ class EventsController < ApplicationController
       render 'new'
     end
   end
-  
+
   def show
     @event = Event.find(params[:id])
   end
-  
+
   def index
     @future = Event.future
     @past = Event.past
@@ -45,16 +45,15 @@ class EventsController < ApplicationController
 
   private
 
-    def this_event
-      @event = Event.find_by(id: params[:id])
-      return if @event
+  def this_event
+    @event = Event.find_by(id: params[:id])
+    return if @event
 
-      flash[:warning] = "The event doesn't exist"
-      redirect_to :root
-    end
+    flash[:warning] = "The event doesn't exist"
+    redirect_to :root
+  end
 
-    def event_params
-      params.require(:event).permit(:title, :description, :date)
-    end   
-
+  def event_params
+    params.require(:event).permit(:title, :description, :date)
+  end
 end
