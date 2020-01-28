@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :attending_events, through: :attendances, source: :event
 
   validates :name, presence: true, length: { minimum: 5 }
-  validates :username, presence: true, length: { minimum: 5 }
+  validates :username, presence: true, length: { minimum: 5 }, uniqueness: true
 
   def join_event(event)
     return false if attending_events.include? event
