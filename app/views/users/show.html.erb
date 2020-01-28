@@ -6,13 +6,19 @@
     </section>
   </aside>
 
-  <div>
-   <h4 class="index-heading">Created Events</h4>
-   <%= render 'user_events', events: @user.created_events %>
+  <div class="events-wrap">
+    <h4 class="index-heading">Created Events</h4>
+    <p class="user-show">Previously created events</p>
+    <%= render 'user_events', events: @past_created_events %>
+    <p class="user-show">Upcoming events</p>
+    <%= render 'user_events', events: @upcoming_created_events %>
   </div>
 
-  <div>
-   <h4 class="index-heading">Attending Events</h4>
-   <%= render 'user_events', events: @user.attending_events %>
+  <div class="events-wrap">
+    <h4 class="index-heading">Attending Events</h4>
+    <p class="user-show">Previously attended events</p>
+    <%= render 'user_events', events: @past_attended_events %>
+    <p class="user-show">Upcoming events</p>
+    <%= render 'user_events', events: @future_attending_events %>
   </div>
 </div>

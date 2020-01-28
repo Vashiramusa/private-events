@@ -1,4 +1,4 @@
-<%if @future.any? || @past.any?%>
+<%if events_any? %>
   <h2 class="index-heading">Future Events</h2>
   <%=render 'event_list', events: @future%>
   <h2 class="index-heading past-events">Past Events</h2>

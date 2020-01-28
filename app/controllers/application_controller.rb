@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
+  include EventsHelper
 
   def user_logged_in?
     return if logged_in?

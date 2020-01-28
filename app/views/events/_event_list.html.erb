@@ -7,7 +7,7 @@
       <p><%= event.date.strftime('%B %d, %Y') %></p>
       <%= link_to '(Details)', event, class: 'details-link' %> <br>
       <%if logged_in?%>
-        <% if current_user.attending_events.include?(event) %>
+        <% if attending?(event) %>
           <%= link_to 'Leave', leave_event_path(event), method: :post, class: "btn btn-lg btn-primary event-btn" %>
         <% else %>
           <%= link_to 'Join', join_event_path(event), method: :post, class: "btn btn-lg btn-primary event-btn" %>
