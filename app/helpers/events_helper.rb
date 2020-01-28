@@ -1,5 +1,4 @@
 module EventsHelper
-
   def attending?(event)
     current_user.attending_events.include?(event)
   end
