@@ -1,0 +1,24 @@
+<div class="row">
+  <aside>
+    <section class="user_info">
+      <h1>Name: <%= @user.name %></h1>
+      <h3>Username: <%= @user.username %></h3>
+    </section>
+  </aside>
+
+  <div class="events-wrap">
+    <h4 class="index-heading">Created Events</h4>
+    <p class="user-show">Previously created events</p>
+    <%= render 'user_events', events: @past_created_events %>
+    <p class="user-show">Upcoming events</p>
+    <%= render 'user_events', events: @upcoming_created_events %>
+  </div>
+
+  <div class="events-wrap">
+    <h4 class="index-heading">Attending Events</h4>
+    <p class="user-show">Previously attended events</p>
+    <%= render 'user_events', events: @past_attended_events %>
+    <p class="user-show">Upcoming events</p>
+    <%= render 'user_events', events: @future_attending_events %>
+  </div>
+</div>
