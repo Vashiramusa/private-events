@@ -23,6 +23,22 @@ A user can create events. A user can attend many events. An event can be attende
 - Ruby (version 2.6.3)
 - Ruby on Rails (version 5.2.4)
 
+## Usage
+
+Clone the repository to your machine and cd into the directory
+
+````
+$ git clone git@github.com:ermin-cahtarevic/private-events.git
+$ cd private-events
+````
+Use the following command to start the rails server then visit: http://localhost:3000 to use the app
+````
+$ rails s
+````
+Tests
+
+Tests have not been added yet, they are something that should be added eventually
+
 ## Authors
 
 👤 **Ermin Cahtarevic**
